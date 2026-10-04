@@ -1,0 +1,59 @@
+Pi Game React Component
+
+This component: - Stores the user’s input with React state. - Stores
+whether the game is over. - Only accepts digits. - Checks the typed
+sequence against the digits of pi. - Locks the input immediately when
+the user enters an incorrect digit.
+
+    import { useState } from 'react'
+
+    function PiGame() {
+      const [userInput, setUserInput] = useState('')
+      const [gameOver, setGameOver] = useState(false)
+
+      const piDigits =
+        '314159265358979323846264338327950288419716939937510'
+
+      function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
+        const newInput = event.target.value
+
+        // Only allow digits
+        if (!/^\d*$/.test(newInput)) {
+          return
+        }
+
+        // Check whether the sequence still matches pi
+        if (!piDigits.startsWith(newInput)) {
+          setGameOver(true)
+          return
+        }
+
+        setUserInput(newInput)
+      }
+
+      return (
+        <input
+          type="text"
+          inputMode="numeric"
+          className="form-control number-input"
+          placeholder="Start typing"
+          value={userInput}
+          onChange={handleInput}
+          disabled={gameOver}
+        />
+      )
+    }
+
+    export default PiGame
+
+Main idea
+
+Each time the input changes, handleInput gets the entire sequence
+currently inside the input. piDigits.startsWith(newInput) checks whether
+everything the player has typed so far matches the beginning of pi.
+
+If it returns false, gameOver becomes true. Because the input uses
+disabled={gameOver}, the player can no longer enter digits.
+
+Note: With this version, the incorrect digit is rejected and does not
+remain visible in the input.

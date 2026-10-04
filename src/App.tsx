@@ -11,9 +11,7 @@ function App() {
     <>
       <section id="center">
         <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+          <img className="pi-image" src="pi_google.png" alt="pi_google" />
         </div>
         <div>
           <h1>Get started</h1>
@@ -21,12 +19,18 @@ function App() {
             Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
           </p>
         </div>
+        <input
+          type="text"
+          inputMode="numeric"
+          className="form-control number-input"
+          placeholder="Start typing π..."
+        />
         <button
           type="button"
           className="counter"
           onClick={() => setCount((count) => count + 1)}
         >
-          Count is {count}
+          Count is here {count}
         </button>
       </section>
 

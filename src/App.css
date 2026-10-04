@@ -56,6 +56,24 @@
   }
 }
 
+.pi-image {
+  width: 500px;
+  height: auto;
+}
+
+.number-input {
+  width: 250px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  background-color: #1b1b20;
+  color: white;
+}
+
 #center {
   display: flex;
   flex-direction: column;
